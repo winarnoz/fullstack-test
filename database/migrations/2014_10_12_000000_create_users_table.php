@@ -20,7 +20,23 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->text('two_factor_secret');
+            $table->text('two_factor_recovery_codes');
+            $table->foreignId('current_team_id');
+            $table->text('profile_photo_path');
+            $table->integer('number_hp');
+            $table->text('status_verif');
+            $table->mediumText('location');
+            $table->text('twitter');
+            $table->text('instagram');
+            $table->text('linkedin');
+            $table->text('facebook');
+            $table->integer('max_campaign');
+            $table->boolean('is_login_active');
+            $table->text('photo');
+            $table->integer('no_ktp');
             $table->timestamps();
+            $table->softDeletes('deleted_at', 0);
         });
     }
 
